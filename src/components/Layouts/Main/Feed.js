@@ -5,6 +5,7 @@ import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TodayIcon from '@mui/icons-material/Today';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import Post from './Post';
 
 const Feed = () => {
     return (
@@ -38,6 +39,12 @@ const Feed = () => {
 
                 </div>
             </div>
+            <Post name="Raju Palumaru" description='This is test purpose' message='we are learing React JS' PhotoUrl='https://images.pexels.com/photos/1172207/pexels-photo-1172207.jpeg?cs=srgb&dl=pexels-oleksandr-pidvalnyi-1172207.jpg&fm=jpg'/>
+            <Post name="Raju Palumaru" description='This is test purpose' message='we are learing React JS' PhotoUrl='https://images.pexels.com/photos/1172207/pexels-photo-1172207.jpeg?cs=srgb&dl=pexels-oleksandr-pidvalnyi-1172207.jpg&fm=jpg'/>
+            <Post name="Raju Palumaru" description='This is test purpose' message='we are learing React JS' PhotoUrl='https://images.pexels.com/photos/1172207/pexels-photo-1172207.jpeg?cs=srgb&dl=pexels-oleksandr-pidvalnyi-1172207.jpg&fm=jpg'/>
+            <Post name="Raju Palumaru" description='This is test purpose' message='we are learing React JS' PhotoUrl='https://images.pexels.com/photos/1172207/pexels-photo-1172207.jpeg?cs=srgb&dl=pexels-oleksandr-pidvalnyi-1172207.jpg&fm=jpg'/>
+            <Post name="Raju Palumaru" description='This is test purpose' message='we are learing React JS' PhotoUrl='https://images.pexels.com/photos/1172207/pexels-photo-1172207.jpeg?cs=srgb&dl=pexels-oleksandr-pidvalnyi-1172207.jpg&fm=jpg'/>
+            
 
         </div>
     )
