@@ -8,18 +8,23 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import Post from './Post';
 import db from '../../../firebase';
 import firebase from 'firebase';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../features/userSlice';
 
 const Feed = () => {
+
+    const user = useSelector(selectUser);
+
     const [input, setInput] = useState("");
     const [posts, setPosts] = useState([]);
 
     const submitPost = (e) => {
         e.preventDefault();
         db.collection('posts').add({
-            name: 'Raju Palumaru',
+            name: user.displayName,
             description: 'This is test purpose',
             message: input,
-            PhotoUrl: 'https://images.pexels.com/photos/1172207/pexels-photo-1172207.jpeg?cs=srgb&dl=pexels-oleksandr-pidvalnyi-1172207.jpg&fm=jpg',
+            PhotoUrl: user.photoURL,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
         setInput("");
@@ -35,14 +40,14 @@ const Feed = () => {
             })))
         })
 
-    },[])
-    
+    }, [])
+
 
     return (
         <div className='feed'>
             <div className='feed-input'>
                 <div className='feed-form'>
-                    <Avatar src='https://images.pexels.com/photos/1172207/pexels-photo-1172207.jpeg?cs=srgb&dl=pexels-oleksandr-pidvalnyi-1172207.jpg&fm=jpg' />
+                    <Avatar src={user.photoURL} />
                     <form onSubmit={submitPost}>
                         <input type='text' placeholder='Start a Post' value={input} onChange={e => setInput(e.target.value)} />
                         <input type='submit' />
@@ -72,12 +77,12 @@ const Feed = () => {
 
 
             {
-                posts.map(({id,data:{name,description,message,PhotoUrl,timestamp}})=>{
-                    return (<Post name={name} description={description} message={message} PhotoUrl={PhotoUrl} />
+                posts.map(({ id, data: { name, description, message, PhotoUrl, timestamp } }) => {
+                    return (<Post key={id} name={name} description={description} message={message} PhotoUrl={PhotoUrl} />
                     )
                 })
             }
-          
+
 
         </div>
     )
